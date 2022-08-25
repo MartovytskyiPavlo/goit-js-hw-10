@@ -20,11 +20,9 @@ const countryInfo = document.querySelector(".country-info");
 input.addEventListener("input",get_country);
 
 function get_country() {
-    country = "ge";
-    
+    const country = input.value.trim();    
     fetchCountries(country);
 }
-
 
 function convertCountry(data) {
     return {
@@ -44,6 +42,13 @@ function fetchCountries(name) {
         console.log(data);
 
         console.log(data.length);
+
+        if (data.length < 1) { 
+            Notiflix.Notify.failure('Oops, there is no country with that name');
+        } else if (data.length > 10) {
+            Notiflix.Notify.info('Too many matches found. Please enter a more specific name.');
+        }
+
        
         countryList.innerHTML = "<pre>" + JSON.stringify(data, null, "  ") + "</pre>";
     }) 
