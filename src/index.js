@@ -22,10 +22,29 @@ input.addEventListener("input",get_country);
 function get_country() {
     country = "ge";
     
-    const data=fetchCountries(country);
-    countryList.innerHTML = "<pre>" + JSON.stringify(data, null, "  ") + "</pre>";
+    fetchCountries(country);
+}
+
+
+function convertCountry(data) {
+    return {
+        country: data.country,
+        capital: data.capital,
+        flags: data.flags,
+        languages: data.languages,
+        population: data.population
+    }
+    
 }
 
 function fetchCountries(name) {
-    return fetch(API_URL+name+ "?fields=" + filterFields.join(",")).then(response => { console.log(response.json()); return response.json(); }) 
+    return fetch(API_URL + name + "?fields=" + filterFields.join(",")).then(r => r.json()).then(response=>
+        {
+        const data=response;
+        console.log(data);
+
+        console.log(data.length);
+       
+        countryList.innerHTML = "<pre>" + JSON.stringify(data, null, "  ") + "</pre>";
+    }) 
 }
