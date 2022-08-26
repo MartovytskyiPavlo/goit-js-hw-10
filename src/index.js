@@ -17,7 +17,10 @@ const input = document.querySelector("#search-box");
 const countryList = document.querySelector(".country-list");
 const countryInfo = document.querySelector(".country-info");
 
-input.addEventListener("input",get_country);
+
+const debouncedHandle = debounce(get_country, 300)
+
+input.addEventListener("input",debouncedHandle);
 
 function get_country() {
     const country = input.value.trim();    
