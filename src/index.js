@@ -5,14 +5,7 @@ import {fetchCountries} from './js/fetchCountries.js';
 
 const DEBOUNCE_DELAY = 300;
 
-const API_URL = "https://restcountries.com/v3.1/name/";
-const filterFields = [
-    "name",             // имя страны
-    "capital",          // столица
-    "population",       // население
-    "flags",            // ссылка на изображение флага
-    "languages"         // массив языков
-  ];
+
 
 const input = document.querySelector("#search-box");
 const countryList = document.querySelector(".country-list");
