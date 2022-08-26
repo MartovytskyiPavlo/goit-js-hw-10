@@ -7,7 +7,10 @@ const filterFields = [
     "population",       // население
     "flags",            // ссылка на изображение флага
     "languages"         // массив языков
-  ];
+];
+  
+const countryList = document.querySelector(".country-list");
+const countryInfo = document.querySelector(".country-info");
 
 function fetchCountries(name) {
     return fetch(API_URL + name + "?fields=" + filterFields.join(",")).then(r => r.json())

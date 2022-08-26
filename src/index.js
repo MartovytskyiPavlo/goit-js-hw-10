@@ -6,8 +6,7 @@ import {fetchCountries, renderCard} from './js/fetchCountries.js';
 const DEBOUNCE_DELAY = 300;
 
 const input = document.querySelector("#search-box");
-const countryList = document.querySelector(".country-list");
-const countryInfo = document.querySelector(".country-info");
+
 
 
 const debouncedHandle = debounce(get_country, DEBOUNCE_DELAY)
