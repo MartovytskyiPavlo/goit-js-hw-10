@@ -1,6 +1,7 @@
 import './css/styles.css';
 import Notiflix from 'notiflix';
 import debounce from "lodash.debounce";
+import {fetchCountries} from './js/fetchCountries.js';
 
 const DEBOUNCE_DELAY = 300;
 
@@ -42,9 +43,9 @@ function renderCard(data) {
     }
 }
 
-function fetchCountries(name) {
-    return fetch(API_URL + name + "?fields=" + filterFields.join(",")).then(r => r.json())
-}
+// function fetchCountries(name) {
+//     return fetch(API_URL + name + "?fields=" + filterFields.join(",")).then(r => r.json())
+// }
 
 
 function getLanguages(languages) { 
