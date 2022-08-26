@@ -25,7 +25,6 @@ function renderCard(data) {
         countryList.innerHTML = prepareList(data);
         countryInfo.innerHTML = "";
     } else {
-        console.log(data);
         countryList.innerHTML = "";
         countryInfo.innerHTML = prepareInfo(data[0]);
     }
