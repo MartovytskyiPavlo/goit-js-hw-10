@@ -14,8 +14,10 @@ const debouncedHandle = debounce(get_country, DEBOUNCE_DELAY)
 input.addEventListener("input",debouncedHandle);
 
 function get_country() {
-    const country = input.value.trim();    
-    fetchCountries(country).then(renderCard);
+    const country = input.value.trim(); 
+    if (country !== '') {
+        fetchCountries(country).then(renderCard);
+    }
 }
 
 
