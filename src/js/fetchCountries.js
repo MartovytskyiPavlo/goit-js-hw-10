@@ -18,15 +18,15 @@ function fetchCountries(name) {
 }
 
 function renderCard(data) {
+    countryInfo.innerHTML = "";
+    countryList.innerHTML = "";
     if (data.status == 404 && data.message === "Not Found") {
         Notiflix.Notify.failure('Oops, there is no country with that name');
     } else if (data.length > 10) {
         Notiflix.Notify.info('Too many matches found. Please enter a more specific name.');
     } else if (data.length > 1) {
         countryList.innerHTML = prepareList(data);
-        countryInfo.innerHTML = "";
     } else {
-        countryList.innerHTML = "";
         countryInfo.innerHTML = prepareInfo(data[0]);
     }
 }
